@@ -34,6 +34,3 @@ for _ in range(m):
 dfs(v)
 print()
 bfs(v)
-
-#
-https://velog.io/@hamfan524
