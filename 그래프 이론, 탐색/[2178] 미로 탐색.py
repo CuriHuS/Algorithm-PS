@@ -1,61 +1,52 @@
 from collections import deque
 import sys
-read = sys.stdin.readline
-
-
+import copy
+m,n= map(int,input().split())
 graph=[]
-n,m = map(int,input().split())
 for _ in range(n):
-    graph.append(list(map(int,input())))
-x,y=0,0
+    graph.append(list(map(int,sys.stdin.readline().split())))
 dx=[-1,1,0,0]
 dy=[0,0,1,-1]
-
-def bfs(v,i):
-    print(graph)
-    for a in range(3):
-        print(v,i,a)
-        
-        if 0<=  v+dx[a] < n and 0<=i+dy[a] < m:
-            if graph[v+dx[a]][i+dy[a]] == 1:
-                graph[v+dx[a]][i+dy[a]] += graph[v][i]
-                bfs(v+dx[a],i+dy[a])
-        else:
-            continue
-            
-bfs(x,y)
-
-print(graph[n-1][m-1])
-
-### 정답 ###
-"""
-from collections import deque
-import sys
-read = sys.stdin.readline
-
-
-graph=[]
-n,m = map(int,input().split())
-for _ in range(n):
-    graph.append(list(map(int,input())))
-x,y=0,0
-dx=[-1,1,0,0]
-dy=[0,0,1,-1]
-
-def bfs(v,i):
-    q=deque()
-    q.append((v,i))
+a=3
+result=0
+def bfs(L):
+    q=copy.deepcopy(S)
+    global result
     while q:
         v, i = q.popleft()
-        for a in range(4):
-            if 0<=  v+dx[a] < n and 0<=i+dy[a] < m:
-                if graph[v+dx[a]][i+dy[a]] == 1:
-                    graph[v+dx[a]][i+dy[a]] += graph[v][i]
+        for  a in range(4):
+            if 0<= v+dx[a] <n and 0<=i+dy[a] < m:
+                if graph[v+dx[a]][i+dy[a]] == 0:
+                    graph[v+dx[a]][i+dy[a]] = graph[v][i]+1
+                    if graph[v][i]+1 > result:
+                        result=graph[v][i]+1
                     q.append((v+dx[a],i+dy[a]))
-            else:
-                continue
-            
-bfs(x,y)
+                
+                else:
+                    continue
 
-print(graph[n-1][m-1])
-"""
+S=deque() # 1 좌표 큐
+for i in range(n):
+    for j in range(m):
+        if graph[i][j] == 1:
+            S.append((i,j))
+        elif graph[i][j] == 0:
+            a=0
+            
+if len(S)==m*n:
+    a=2
+else:
+    for i in range(len(S)):
+        bfs(S)
+
+    for i in range(n):
+        if 0 in graph[i]:
+            print(-1)
+            a=1
+            break
+if a == 0:
+    print(result-1)
+elif a==2 or a==3:
+    print(0)
+
+# 시간 줄여야됨
