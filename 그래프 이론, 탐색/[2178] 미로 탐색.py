@@ -3,11 +3,18 @@ import sys
 import copy
 m,n= map(int,input().split())
 graph=[]
+a=3
+S=deque()
 for _ in range(n):
-    graph.append(list(map(int,sys.stdin.readline().split())))
+    _ = list(map(int,sys.stdin.readline().split()))
+    if 0 in _:
+        a=0
+    if 1 in _:
+        for li in len(_)
+    graph.append(_)
+
 dx=[-1,1,0,0]
 dy=[0,0,1,-1]
-a=3
 result=0
 def bfs(L):
     q=copy.deepcopy(S)
@@ -25,13 +32,6 @@ def bfs(L):
                 else:
                     continue
 
-S=deque() # 1 좌표 큐
-for i in range(n):
-    for j in range(m):
-        if graph[i][j] == 1:
-            S.append((i,j))
-        elif graph[i][j] == 0:
-            a=0
             
 if len(S)==m*n:
     a=2
@@ -49,4 +49,3 @@ if a == 0:
 elif a==2 or a==3:
     print(0)
 
-# 시간 줄여야됨
