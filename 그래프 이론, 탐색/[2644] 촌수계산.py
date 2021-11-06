@@ -4,22 +4,34 @@ x,y=map(int,input().split())
 m=int(input())
 graph=[[0]*(n+1) for _ in range(n+1)]
 visit_list=[0]*(n+1)
+count=0
 for i in range(m):
     a,b=map(int,input().split())
     graph[a][b]=graph[b][a] = 1
 def bfs(v, end):
+    global count
     q=deque()
     q.append(v)
     while q:
         v=q.popleft()
+        print(v,q,graph)
         if v==end:
-            break
+            print(v)
+            return True
+        count+=1
         for i in range(1,n+1):
             if visit_list[i]==0 and graph[v][i]==1:
+                graph[v][i]+=count
+                visit_list[i]=1
                 q.append(i)
                 graph[v][i]=graph[i][v]+1
+                if i==end:
+                    print(graph[v][i])
+                    return True
+    print(-1)    
 
 bfs(x,y)
+
 
 
 # 위 코드는 bfs를 활용해서 이동 거리만큼 graph에 값을 추가함.
