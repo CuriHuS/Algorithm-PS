@@ -47,12 +47,10 @@ def back_check(x,y,direct):
             return True
         
 def move(x,y,direct): #왼쪽 방향부터 천천히 검색하는 알고리즘으로 변경. 또한 보는 방향의 왼쪽임. y-1 매커니즘 아님.
-    global count
     for i in range(4):
         if direct==0 and y-1>=0:
             if L[x][y-1] == 0:
                 L[x][y-1]=2
-                count+=1
                 direct=direct_change(direct)
                 move(x,y-1,direct)
                 break
@@ -61,7 +59,6 @@ def move(x,y,direct): #왼쪽 방향부터 천천히 검색하는 알고리즘�
         elif direct==1 and x-1>=0:
             if L[x-1][y] ==0:
                 L[x-1][y]=2
-                count+=1
                 direct=direct_change(direct)
                 move(x-1,y,direct)
                 break
@@ -70,7 +67,6 @@ def move(x,y,direct): #왼쪽 방향부터 천천히 검색하는 알고리즘�
         elif direct==2 and y+1<M:
             if L[x][y+1]==0:
                 L[x][y+1]=2
-                count+=1
                 direct=direct_change(direct)
                 move(x,y+1,direct)
                 break
@@ -79,7 +75,6 @@ def move(x,y,direct): #왼쪽 방향부터 천천히 검색하는 알고리즘�
         elif direct==3 and x+1<N:
             if L[x+1][y]==0:
                 L[x+1][y]=2
-                count+=1
                 direct=direct_change(direct)
                 move(x+1,y,direct)
                 break
@@ -87,11 +82,7 @@ def move(x,y,direct): #왼쪽 방향부터 천천히 검색하는 알고리즘�
                 direct=direct_change(direct)
         if i==3:
             if back_check(x,y,direct)==True:
-                print(r,c,direct)
-                test(L)
-                print("")
                 L[r][c]=2
-                count+=1
                 move(r,c,direct)
                 break
             else:
@@ -101,7 +92,8 @@ def move(x,y,direct): #왼쪽 방향부터 천천히 검색하는 알고리즘�
 
     
 move(r,c,d)
+for i in range(N):
+    count+=L[i].count(2)
 print(count)
-            
             
         
