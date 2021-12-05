@@ -13,14 +13,17 @@ def test(t):
     for i in range(len(t)):
         print(t[i], end="\n")
         
-def direction_change(a):
+def direct_change(a):
     #a=방향
-    if a==3:
-        a=0
+    if a==0:
+        a=3
     else:
-        a+=1
+        a-=1
+    return a
 
 def back_check(x,y,direct):
+    global r
+    global c
     if direct==0:
         x+=1
     elif direct==1:
@@ -33,46 +36,70 @@ def back_check(x,y,direct):
     if 0<=x < N and 0<=y < M:
         if L[x][y]==1:
             return False
-        else:
+        elif L[x][y]==2:
             r=x
             c=y
             return True
-
-dx=[-1,1,0,0]
-dy=[0,0,1,-1]
+        else:
+            L[x][y]=2
+            r=x
+            c=y
+            return True
         
 def move(x,y,direct): #왼쪽 방향부터 천천히 검색하는 알고리즘으로 변경. 또한 보는 방향의 왼쪽임. y-1 매커니즘 아님.
     global count
-    check=0
     for i in range(4):
-        if 0<= x+dx[i] < N and 0<= y+dy[i] < M:
-            if L[x+dx[i]][y+dy[i]]==0:
-                check+=1
-                
-    if check==0: #청소공간 없음.
-        if back_check(x,y,direct) == False:
-            print("C")
-            return False
-        else:
-            print("D")
-            move(r,c,direct)
-    else: #청소 공간 있음.
-        if x>= 0 and y-1>=0:
-            if L[x][y-1]==0:
+        if direct==0 and y-1>=0:
+            if L[x][y-1] == 0:
                 L[x][y-1]=2
-                print("E")
                 count+=1
+                direct=direct_change(direct)
                 move(x,y-1,direct)
-            elif L[x-1][y]==0:
+                break
+            else:
+                direct=direct_change(direct)
+        elif direct==1 and x-1>=0:
+            if L[x-1][y] ==0:
                 L[x-1][y]=2
                 count+=1
-                
-        else:
-            print("F")
-            direction_change(direct)
-            count+=1
-            move(x,y,direct)
+                direct=direct_change(direct)
+                move(x-1,y,direct)
+                break
+            else:
+                direct=direct_change(direct)
+        elif direct==2 and y+1<M:
+            if L[x][y+1]==0:
+                L[x][y+1]=2
+                count+=1
+                direct=direct_change(direct)
+                move(x,y+1,direct)
+                break
+            else:
+                direct=direct_change(direct)
+        elif direct==3 and x+1<N:
+            if L[x+1][y]==0:
+                L[x+1][y]=2
+                count+=1
+                direct=direct_change(direct)
+                move(x+1,y,direct)
+                break
+            else:
+                direct=direct_change(direct)
+        if i==3:
+            if back_check(x,y,direct)==True:
+                print(r,c,direct)
+                test(L)
+                print("")
+                L[r][c]=2
+                count+=1
+                move(r,c,direct)
+                break
+            else:
+                break
 
+
+
+    
 move(r,c,d)
 print(count)
             
