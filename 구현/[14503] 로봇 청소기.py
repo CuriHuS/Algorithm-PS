@@ -7,7 +7,6 @@ for i in range(N):
 
 # x가 세로 방향, y가 가로방향으로 움직인다.
 L[r][c]=2
-count+=1
 
 def test(t):
     for i in range(len(t)):
@@ -88,12 +87,7 @@ def move(x,y,direct): #왼쪽 방향부터 천천히 검색하는 알고리즘�
             else:
                 break
 
-
-
-    
 move(r,c,d)
 for i in range(N):
     count+=L[i].count(2)
 print(count)
-            
-        
