@@ -31,6 +31,6 @@ for i in graph.keys():
     if visit_list[i]==0:
         if bfs(i) is True:
             count+=1
-count+=visit_list.count(0)-1
+count+=visit_list.count(0)-1 # 연결된 노드가 없는 정점도 포함
 
 print(count)
