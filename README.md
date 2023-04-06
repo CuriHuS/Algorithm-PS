@@ -15,7 +15,7 @@
 - `Python`
 - `C++`
 
-
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=curihus&layout=compact&theme=light)
 
 ----
 
@@ -35,3 +35,6 @@
   
 - [자료 구조](https://github.com/CuriHuS/Baekjoon/tree/main/%EC%9E%90%EB%A3%8C%20%EA%B5%AC%EC%A1%B0)
   <br> Heap, Deque 등 기본 제공 자료형이 아닌 자료 구조
+
+### Level
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=curihus)](https://solved.ac/curihus)
