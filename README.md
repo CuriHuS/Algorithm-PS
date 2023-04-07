@@ -15,7 +15,7 @@
 - `Python`
 - `C++`
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=curihus&layout=compact&theme=light)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=curihus&exclude_repo=lol-searcher,Discord-Bot&layout=compact&theme=light)](https://github.com/CuriHuS/Baekjoon)
 
 ----
 
