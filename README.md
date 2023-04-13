@@ -35,6 +35,9 @@
   
 - [자료 구조](https://github.com/CuriHuS/Baekjoon/tree/main/%EC%9E%90%EB%A3%8C%20%EA%B5%AC%EC%A1%B0)
   <br> Heap, Deque 등 기본 제공 자료형이 아닌 자료 구조
+  
+- [브루트포스 알고리즘](https://github.com/CuriHuS/Baekjoon/tree/main/%EB%B8%8C%EB%A3%A8%ED%8A%B8%ED%8F%AC%EC%8A%A4%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+  <br> 전체 경우의 수를 확인하는 알고리즘
 
 ### Level
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=curihus)](https://solved.ac/curihus)
