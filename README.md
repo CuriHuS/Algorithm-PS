@@ -41,6 +41,9 @@
   
 - [그리디 알고리즘](https://github.com/CuriHuS/Baekjoon/tree/main/%EA%B7%B8%EB%A6%AC%EB%94%94%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
   <br> 매 순간 가장 유리한 선택을 하는 알고리즘
+  
+- [재귀](https://github.com/CuriHuS/Baekjoon/tree/main/%EC%9E%AC%EA%B7%80)
+  <br> 자신의 함수를 재호출하여 반복하는 알고리즘
 
 - [Review Note For Wrong Answers](https://github.com/CuriHuS/Baekjoon/tree/main/Review%20Notes%20For%20Wrong%20Answers)
   <br> 개인용 오답노트
