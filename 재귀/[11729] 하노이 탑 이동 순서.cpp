@@ -3,7 +3,7 @@
 using namespace std;
 
 void move(int N, int start, int end) {
-	cout << start << " " << end << "\n;"  # endl 대신 개행문자 사용으로 시간 단축
+	cout << start << " " << end << "\n";  // endl 대신 개행문자 사용으로 시간 단축
 }
 
 void hanoi(int N, int start, int end, int sub) {
@@ -19,8 +19,8 @@ void hanoi(int N, int start, int end, int sub) {
 }
 
 int main() {
-	ios::sync_with_stdio(false); #중요: cout 시의 출력 시간을 대폭 감소 이거 없으면 시간 초과
-		int N;
+	ios::sync_with_stdio(false); //중요: cout 시의 출력 시간을 대폭 감소 이거 없으면 시간 초과
+	int N;
 	cin >> N;
 	cout << static_cast<long long>(pow(2, N)) - 1 << endl;
 	hanoi(N, 1, 3, 2);
