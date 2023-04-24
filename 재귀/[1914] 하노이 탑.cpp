@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <deque>
-#include <algorithm>
+#include <cmath>
 using namespace std;
 
 void move(int N, int start, int end) {
@@ -29,19 +27,19 @@ int main() {
 		cout << static_cast<long long>(pow(2, N)) - 1 << endl;
 		hanoi(N, 1, 3, 2);
 	}
-	else { # 11729 하노이 탑과 다른 점이다. 최대 2^100까지 계산하므로 long long의 범위를 넘는다. 그래서 N>20이상인 수부터는 배열로 자리수를 각각 계산해준다.
+	else { // 11729 하노이 탑과 다른 점이다. 최대 2^100까지 계산하므로 long long의 범위를 넘는다. 그래서 N>20이상인 수부터는 배열로 자리수를 각각 계산해준다.
 		vector<int>count(1,1); 
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < count.size(); j++) {
 				count[j] *= 2;
 			}
 			for (int j = 0; j < count.size(); j++) {
-				if (count[j] >= 10) {  # 각 자리의 수가 10이 넘어가면 다음 자리수를 1 올려준다.
-					if (j == count.size() - 1) { # 만약 벡터의 인덱스가 마지막이라면 다음 인덱스가 없으니 push_back을 해준다.
+				if (count[j] >= 10) {  // 각 자리의 수가 10이 넘어가면 다음 자리수를 1 올려준다.
+					if (j == count.size() - 1) { // 만약 벡터의 인덱스가 마지막이라면 다음 인덱스가 없으니 push_back을 해준다.
 						count[j] -= 10;
 						count.push_back(1);
 					}
-					else {  # 마지막 인덱스가 아니라면 다음 인덱스의 값을 1 올려준다.
+					else {  // 마지막 인덱스가 아니라면 다음 인덱스의 값을 1 올려준다.
 						count[j + 1]++;
 						count[j] -= 10;
 					}
