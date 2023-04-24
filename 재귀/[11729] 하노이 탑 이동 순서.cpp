@@ -3,7 +3,7 @@
 using namespace std;
 
 void move(int N, int start, int end) {
-	cout << start << " " << end << "\n;  # endl 대신 개행문자 사용으로 시간 단축
+	cout << start << " " << end << "\n;"  # endl 대신 개행문자 사용으로 시간 단축
 }
 
 void hanoi(int N, int start, int end, int sub) {
